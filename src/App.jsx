@@ -12,7 +12,7 @@ import ServicePage from './components/Service/ServicePage';
 
 function App() {
   return (
-    <Router basename="/dev-tech">
+    <Router >
       <Routes>
         <Route path="/" element={
           <div>

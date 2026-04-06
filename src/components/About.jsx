@@ -44,123 +44,140 @@ const AboutDevCube = () => {
           </div>
         </div>
 
-        <section className="mb-32 md:mb-20 relative overflow-hidden">
-          {/* Subtle dot pattern background */}
-          <div className="absolute inset-0 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px] opacity-30 pointer-events-none"></div>
+   <section className="mb-32 md:mb-20 relative overflow-hidden">
+  {/* Background */}
+  <div className="absolute inset-0 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px] opacity-30 pointer-events-none"></div>
 
-          {/* Animated gradient orbs */}
-         
+  <div className="grid md:grid-cols-2 gap-8 md:gap-16 relative z-10">
+    {[{
+      title: "Our Mission",
+      text: "To empower businesses and individuals with innovative technology solutions while cultivating the next generation of tech leaders through education and mentorship programs.",
+      delay: "150ms",
+    }, {
+      title: "Our Vision",
+      text: "Creating a world where technology is accessible, understandable, and empowering for everyone, regardless of background or expertise.",
+      delay: "300ms",
+    }].map((item, idx) => (
+      <div
+        key={idx}
+       className={`group relative p-10 md:p-12 rounded-3xl border border-black/5 bg-white/80 backdrop-blur-sm
+shadow-[0_2px_20px_-4px_rgba(0,0,0,0.05)] 
+hover:shadow-[0_25px_60px_-20px_rgba(0,0,0,0.15)] 
+transition-all duration-700 ease-out
+${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"}
+`}
+      >
 
-          <div className="grid md:grid-cols-2 gap-8 md:gap-16 relative z-10">
-            {[{
-              title: "Our Mission",
-              text: "To empower businesses and individuals with innovative technology solutions while cultivating the next generation of tech leaders through education and mentorship programs.",
-              icon: (
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
-                </svg>
-              ),
-              delay: "150ms",
-              stat: "10+",
-              statLabel: "Years of Excellence",
-              statDelay: "200ms",
-            }, {
-              title: "Our Vision",
-              text: "Creating a world where technology is accessible, understandable, and empowering for everyone, regardless of background or expertise.",
-              icon: (
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" />
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                </svg>
-              ),
-              delay: "300ms",
-              stat: "5000+",
-              statLabel: "Students Mentored",
-              statDelay: "350ms",
-            }].map((item, idx) => (
-              <div
-                key={idx}
-                className={`group relative p-10 md:p-12 rounded-3xl border border-black/5 bg-white/80 backdrop-blur-sm
-          shadow-[0_2px_20px_-4px_rgba(0,0,0,0.05)] 
-          hover:shadow-[0_25px_60px_-20px_rgba(0,0,0,0.15)] 
-          hover:-translate-y-3 transition-all duration-700 ease-out
-          ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"}
-        `}
-                style={{ transitionDelay: item.delay }}
-              >
-              
+        {/* 🔥 Animated Border */}
+        <div className="absolute inset-0 rounded-3xl pointer-events-none z-0">
+          <span className="border-line top"></span>
+          <span className="border-line right"></span>
+          <span className="border-line bottom"></span>
+          <span className="border-line left"></span>
+        </div>
 
+        <div className="relative z-10">
 
-                <div className="relative z-10">
-                  {/* Top decorative line */}
-                
+          {/* Title */}
+          <h2 className="text-3xl md:text-5xl font-extralight mb-6 tracking-tight text-black group-hover:tracking-wide transition-all duration-700">
+            {item.title}
+          </h2>
 
-                  {/* Title */}
-                  <h2 className="text-3xl md:text-5xl font-extralight mb-6 tracking-tight text-black group-hover:tracking-wide transition-all duration-700">
-                    {item.title}
-                  </h2>
+          {/* Text */}
+          <p className="text-black/60 leading-[2] text-lg font-light group-hover:text-black/80 transition-colors duration-500">
+            {item.text}
+          </p>
 
-                  {/* Text */}
-                  <p className="text-black/60 leading-[2] text-lg font-light group-hover:text-black/80 transition-colors duration-500">
-                    {item.text}
-                  </p>
-
-                 
-                  {/* Animated progress line */}
-                  <div className="mt-8 relative h-[2px] w-full bg-black/5 overflow-hidden rounded-full">
-                    <div className="absolute inset-y-0 left-0 w-0 bg-black group-hover:w-full transition-all duration-1000 ease-out" />
-                    <div className="absolute inset-y-0 -left-full w-1/2 bg-gradient-to-r from-transparent via-white/50 to-transparent group-hover:animate-[shimmer_1.5s_infinite]" />
-                  </div>
-
-                  {/* Bottom hint */}
-                  <div className="mt-6 flex items-center justify-between">
-                    <div className="flex items-center gap-2 text-sm text-black/30 group-hover:text-black/60 transition-all duration-500 opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0">
-                      <span className="font-medium tracking-wide uppercase text-[10px]">Read more</span>
-                      <svg className="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                      </svg>
-                    </div>
-
-                    {/* Decorative dot indicator */}
-                    <div className="flex gap-1.5 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                      <div className="w-1.5 h-1.5 rounded-full bg-black/20"></div>
-                      <div className="w-1.5 h-1.5 rounded-full bg-black/40"></div>
-                      <div className="w-1.5 h-1.5 rounded-full bg-black/60"></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
+          {/* Progress line */}
+          <div className="mt-8 relative h-[2px] w-full bg-black/5 overflow-hidden rounded-full">
+            <div className="absolute inset-y-0 left-0 w-0 bg-black group-hover:w-full transition-all duration-1000 ease-out" />
+            <div className="absolute inset-y-0 -left-full w-1/2 bg-gradient-to-r from-transparent via-white/50 to-transparent group-hover:animate-[shimmer_1.5s_infinite]" />
           </div>
 
-          {/* Add shimmer animation keyframes - include this in your global CSS or style tag */}
-          <style jsx>{`
+          {/* Bottom */}
+          <div className="mt-6 flex items-center justify-between">
+            <div className="flex items-center gap-2 text-sm text-black/30 group-hover:text-black/60 transition-all duration-500 opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0">
+              <span className="font-medium tracking-wide uppercase text-[10px]">Read more</span>
+              <svg className="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </div>
+
+            <div className="flex gap-1.5 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+              <div className="w-1.5 h-1.5 rounded-full bg-black/20"></div>
+              <div className="w-1.5 h-1.5 rounded-full bg-black/40"></div>
+              <div className="w-1.5 h-1.5 rounded-full bg-black/60"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    ))}
+  </div>
+
+  {/* 🔥 Inline CSS */}
+  <style jsx>{`
     @keyframes shimmer {
-      0% {
-        left: -100%;
-      }
-      100% {
-        left: 200%;
-      }
+      0% { left: -100%; }
+      100% { left: 200%; }
     }
-    .animate-pulse {
-      animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+
+    /* ===== BORDER DRAW EFFECT ===== */
+
+    .border-line {
+      position: absolute;
+      background: black;
+      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     }
-    .delay-1000 {
-      animation-delay: 1s;
+
+    .border-line.top {
+      height: 2px;
+      width: 0;
+      top: 0;
+      left: 0;
     }
-    @keyframes pulse {
-      0%, 100% {
-        opacity: 0.3;
-        transform: scale(1);
-      }
-      50% {
-        opacity: 0.5;
-        transform: scale(1.05);
-      }
+
+    .border-line.right {
+      width: 2px;
+      height: 0;
+      top: 0;
+      right: 0;
+      transition-delay: 0.15s;
+    }
+
+    .border-line.bottom {
+      height: 2px;
+      width: 0;
+      bottom: 0;
+      right: 0;
+      transition-delay: 0.3s;
+    }
+
+    .border-line.left {
+      width: 2px;
+      height: 0;
+      bottom: 0;
+      left: 0;
+      transition-delay: 0.45s;
+    }
+
+    /* Hover trigger */
+    .group:hover .border-line.top {
+      width: 100%;
+    }
+
+    .group:hover .border-line.right {
+      height: 100%;
+    }
+
+    .group:hover .border-line.bottom {
+      width: 100%;
+    }
+
+    .group:hover .border-line.left {
+      height: 100%;
     }
   `}</style>
-        </section>
+</section>
 
         {/* Expertise Section */}
         <div className={`relative border-2 border-[#1a1a1a] bg-white p-12 md:p-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`} style={{ transitionDelay: '600ms' }}>
